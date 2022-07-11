@@ -16,8 +16,8 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user == "mark") {
-            return redirect('/admin');
+        if (!$request->user == "mark") {
+            return redirect(route('home'));
         }
         return $next($request);
     }
